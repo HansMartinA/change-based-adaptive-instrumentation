@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cipm.consistency.temp</groupId>
+		<artifactId>cipm.consistency.temp.lib</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>cipm.consistency.temp.jamopp</artifactId>
+	<packaging>pom</packaging>
+	<name>Palladio-Supporting-EclipseJavaDevelopmentTools Modules</name>
+
+	<modules>
+		<module>jamopp.parser</module>
+		<module>jamopp.parser.bcel</module>
+		<module>jamopp.parser.jdt</module>
+		<module>jamopp.parser.jdt.singlefile</module>
+		<module>jamopp.printer</module>
+		<module>jamopp.resolution</module>
+		<module>jamopp.resource</module>
+		<module>org.emftext.language.java</module>
+		<module>org.emftext.language.java.edit</module>
+		<module>org.emftext.language.java.editor</module>
+	</modules>
+
+</project>

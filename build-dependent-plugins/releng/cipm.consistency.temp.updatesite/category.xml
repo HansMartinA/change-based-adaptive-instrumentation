@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="cipm.consistency.temp.feature">
+      <category name="cipm.consistency.temp.lib"/>
+   </feature>
+   <category-def name="cipm.consistency.temp.lib" label="cipm.consistency.temp.lib">
+      <description>
+         A temporary category for some required plugins.
+      </description>
+   </category-def>
+</site>

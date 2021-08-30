@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cipm.consistency.temp</groupId>
+		<artifactId>cipm.consistency.temp.parent</artifactId>
+		<version>3.0.0-SNAPSHOT</version>
+		<relativePath>releng/cipm.consistency.temp.parent</relativePath>
+	</parent>
+	<artifactId>cipm.consistency.temp.lib</artifactId>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>change-based-adaptive-instrumentation</module>
+		<module>CIPM-Pipeline</module>
+		<module>Palladio-ReverseEngineering-SoMoX-JaMoPP</module>
+		<module>Palladio-Supporting-EclipseJavaDevelopmentTools</module>
+		<module>SPLevo</module>
+		<module>Vitruv</module>
+		<module>Vitruv-Applications-ComponentBasedSystems</module>
+		<module>Vitruv-Applications-PCMJavaAdditionals</module>
+		<module>Vitruv-Domains-ComponentBasedSystems</module>
+		<module>features</module>
+		<module>releng/cipm.consistency.temp.updatesite</module>
+	</modules>
+
+</project>

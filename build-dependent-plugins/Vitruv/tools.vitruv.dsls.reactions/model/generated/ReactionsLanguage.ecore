@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="language" nsURI="http://vitruv.tools/dsls/reactions/language"
+    nsPrefix="language">
+  <eClassifiers xsi:type="ecore:EClass" name="InvariantViolationEvent" eSuperTypes="../TopLevelElements.ecore#//Trigger">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="violation" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelChange" eSuperTypes="../TopLevelElements.ecore#//Trigger"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ConcreteModelChange" eSuperTypes="#//ModelChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElementChange" eSuperTypes="#//ConcreteModelChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" eType="ecore:EClass platform:/resource/tools.vitruv.dsls.common/model/CommonLanguageElements.ecore#//MetaclassReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="changeType" eType="#//ElementChangeType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelAttributeChange" eSuperTypes="#//ConcreteModelChange">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass platform:/resource/tools.vitruv.dsls.common/model/CommonLanguageElements.ecore#//MetaclassEAttributeReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArbitraryModelChange" eSuperTypes="#//ModelChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementExistenceChangeType" eSuperTypes="#//ElementChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElementUsageChangeType" eSuperTypes="#//ElementChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementCreationChangeType" eSuperTypes="#//ElementExistenceChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementDeletionChangeType" eSuperTypes="#//ElementExistenceChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementReferenceChangeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" eType="ecore:EClass platform:/resource/tools.vitruv.dsls.common/model/CommonLanguageElements.ecore#//MetaclassEReferenceReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementRootChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementInsertionChangeType" eSuperTypes="#//ModelElementUsageChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementInsertionInListChangeType" eSuperTypes="#//ElementInsertionChangeType #//ElementReferenceChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementInsertionAsRootChangeType" eSuperTypes="#//ElementRootChangeType #//ElementInsertionChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementRemovalChangeType" eSuperTypes="#//ModelElementUsageChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementRemovalAsRootChangeType" eSuperTypes="#//ElementRootChangeType #//ElementRemovalChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementRemovalFromListChangeType" eSuperTypes="#//ElementRemovalChangeType #//ElementReferenceChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementReplacementChangeType" eSuperTypes="#//ModelElementUsageChangeType #//ElementReferenceChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementCreationAndInsertionChangeType"
+      eSuperTypes="#//ElementCompoundChangeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createChange" eType="#//ElementCreationChangeType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="insertChange" eType="#//ElementInsertionChangeType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementDeletionAndRemovalChangeType"
+      eSuperTypes="#//ElementCompoundChangeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deleteChange" eType="#//ElementDeletionChangeType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="removeChange" eType="#//ElementRemovalChangeType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementDeletionAndCreationAndReplacementChangeType"
+      eSuperTypes="#//ElementCompoundChangeType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deleteChange" eType="#//ElementDeletionChangeType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="createChange" eType="#//ElementCreationChangeType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replacedChange" eType="#//ElementReplacementChangeType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ElementCompoundChangeType" eSuperTypes="#//ElementChangeType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RetrieveOrRequireAbscenceOfModelElement"
+      eSuperTypes="../TopLevelElements.ecore#//MatcherStatement #//Taggable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" eType="ecore:EClass platform:/resource/tools.vitruv.dsls.common/model/CommonLanguageElements.ecore#//MetaclassReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="correspondenceSource" eType="#//CorrespondingObjectCodeBlock"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="precondition" eType="ecore:EClass ../TopLevelElements.ecore#//PreconditionCodeBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RequireAbscenceOfModelElement" eSuperTypes="#//RetrieveOrRequireAbscenceOfModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RetrieveModelElement" eSuperTypes="#//RetrieveOrRequireAbscenceOfModelElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="retrievalType" eType="#//RetrieveModelElementType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RetrieveModelElementType"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="RetrieveOneElementType">
+    <eLiterals name="optional" literal="optional"/>
+    <eLiterals name="asserted" value="1" literal="asserted"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MatcherCheckStatement" eSuperTypes="../TopLevelElements.ecore#//MatcherStatement ../TopLevelElements.ecore#//CodeBlock">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asserted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RoutineCallStatement" eSuperTypes="../TopLevelElements.ecore#//RoutineCallBlock ../TopLevelElements.ecore#//ActionStatement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecuteActionStatement" eSuperTypes="../TopLevelElements.ecore#//ActionStatement ../TopLevelElements.ecore#//CodeBlock"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CreateModelElement" eSuperTypes="../TopLevelElements.ecore#//ActionStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elementType" eType="ecore:EClass platform:/resource/tools.vitruv.dsls.common/model/CommonLanguageElements.ecore#//MetaclassReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="initializationBlock" eType="#//ExecutionCodeBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DeleteModelElement" eSuperTypes="../TopLevelElements.ecore#//ActionStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//ExistingElementReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UpdateModelElement" eSuperTypes="../TopLevelElements.ecore#//ActionStatement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="element" eType="#//ExistingElementReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="updateBlock" eType="#//ExecutionCodeBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CreateCorrespondence" eSuperTypes="../TopLevelElements.ecore#//ActionStatement #//Taggable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstElement" eType="#//ExistingElementReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondElement" eType="#//ExistingElementReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RemoveCorrespondence" eSuperTypes="../TopLevelElements.ecore#//ActionStatement #//Taggable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="firstElement" eType="#//ExistingElementReference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="secondElement" eType="#//ExistingElementReference"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Taggable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tag" eType="#//TagCodeBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExistingElementReference" eSuperTypes="../TopLevelElements.ecore#//CodeBlock"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TagCodeBlock" eSuperTypes="../TopLevelElements.ecore#//CodeBlock"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CorrespondingObjectCodeBlock" eSuperTypes="../TopLevelElements.ecore#//CodeBlock"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExecutionCodeBlock" eSuperTypes="../TopLevelElements.ecore#//CodeBlock"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelAttributeInsertedChange" eSuperTypes="#//ModelAttributeChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelAttributeRemovedChange" eSuperTypes="#//ModelAttributeChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelAttributeReplacedChange" eSuperTypes="#//ModelAttributeChange"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RetrieveOneModelElement" eSuperTypes="#//RetrieveModelElementType">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="optional" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="asserted" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RetrieveManyModelElements" eSuperTypes="#//RetrieveModelElementType"/>
+</ecore:EPackage>
