@@ -19,6 +19,14 @@ public class DeleteParameterRoutine extends AbstractRepairRoutineRealization {
     }
     
     public EObject getElement1(final OrdinaryParameter javaParameter, final Parameter pcmParameter) {
+      return javaParameter;
+    }
+    
+    public EObject getElement2(final OrdinaryParameter javaParameter, final Parameter pcmParameter) {
+      return pcmParameter;
+    }
+    
+    public EObject getElement3(final OrdinaryParameter javaParameter, final Parameter pcmParameter) {
       return pcmParameter;
     }
     
@@ -51,10 +59,12 @@ public class DeleteParameterRoutine extends AbstractRepairRoutineRealization {
     if (pcmParameter == null) {
     	return false;
     }
+    removeCorrespondenceBetween(userExecution.getElement1(javaParameter, pcmParameter), userExecution.getElement2(javaParameter, pcmParameter), "");
+    
     Stream.of(new Object[] {javaParameter, pcmParameter})
     	.filter(it -> it instanceof EObject).map(it -> (EObject) it).forEach(accessibleElement ->
-    		removeCorrespondenceBetween(userExecution.getElement1(javaParameter, pcmParameter), accessibleElement, null));		
-    deleteObject(userExecution.getElement1(javaParameter, pcmParameter));
+    		removeCorrespondenceBetween(userExecution.getElement3(javaParameter, pcmParameter), accessibleElement, null));		
+    deleteObject(userExecution.getElement3(javaParameter, pcmParameter));
     
     return true;
   }

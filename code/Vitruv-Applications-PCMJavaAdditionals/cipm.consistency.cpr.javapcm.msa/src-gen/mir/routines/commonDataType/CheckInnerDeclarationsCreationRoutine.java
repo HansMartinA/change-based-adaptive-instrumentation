@@ -4,6 +4,7 @@ import java.io.IOException;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.emftext.language.java.classifiers.ConcreteClassifier;
+import org.emftext.language.java.containers.Origin;
 import org.emftext.language.java.members.Field;
 import org.emftext.language.java.members.Member;
 import org.emftext.language.java.types.Type;
@@ -25,6 +26,11 @@ public class CheckInnerDeclarationsCreationRoutine extends AbstractRepairRoutine
     
     public void callRoutine1(final DataType type, final TypeReference typeRef, @Extension final RoutinesFacade _routinesFacade) {
       final Type refTarget = typeRef.getTarget();
+      Origin _origin = refTarget.getContainingCompilationUnit().getOrigin();
+      boolean _tripleNotEquals = (_origin != Origin.FILE);
+      if (_tripleNotEquals) {
+        return;
+      }
       if (((type instanceof CompositeDataType) && (refTarget instanceof ConcreteClassifier))) {
         EList<Member> _members = ((ConcreteClassifier) refTarget).getMembers();
         for (final Member mem : _members) {

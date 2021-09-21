@@ -114,22 +114,6 @@ public class RoutinesFacade extends AbstractRepairRoutinesFacade {
     return routine.applyRoutine();
   }
   
-  public boolean deleteSignature(final OperationSignature sign) {
-    RoutinesFacade _routinesFacade = this;
-    ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
-    CallHierarchyHaving _caller = this._getExecutionState().getCaller();
-    DeleteSignatureRoutine routine = new DeleteSignatureRoutine(_routinesFacade, _reactionExecutionState, _caller, sign);
-    return routine.applyRoutine();
-  }
-  
-  public boolean removeCorrespondenceBetweenMethodAndSignature(final Method method, final OperationSignature sign) {
-    RoutinesFacade _routinesFacade = this;
-    ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();
-    CallHierarchyHaving _caller = this._getExecutionState().getCaller();
-    RemoveCorrespondenceBetweenMethodAndSignatureRoutine routine = new RemoveCorrespondenceBetweenMethodAndSignatureRoutine(_routinesFacade, _reactionExecutionState, _caller, method, sign);
-    return routine.applyRoutine();
-  }
-  
   public boolean checkRemovalOfSEFF(final ClassMethod classMethod) {
     RoutinesFacade _routinesFacade = this;
     ReactionExecutionState _reactionExecutionState = this._getExecutionState().getReactionExecutionState();

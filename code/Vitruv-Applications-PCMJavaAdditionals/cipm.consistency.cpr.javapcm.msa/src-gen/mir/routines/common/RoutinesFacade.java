@@ -186,16 +186,6 @@ public class RoutinesFacade extends AbstractRepairRoutinesFacade {
     return _routinesFacade.checkRemovalOfOperationSignature(interfaceMethod);
   }
   
-  public boolean deleteSignature(final OperationSignature sign) {
-    mir.routines.commonSignature.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(this._getReactionsImportPath().append(ReactionsImportPath.fromPathString("commonSignature")));
-    return _routinesFacade.deleteSignature(sign);
-  }
-  
-  public boolean removeCorrespondenceBetweenMethodAndSignature(final Method method, final OperationSignature sign) {
-    mir.routines.commonSignature.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(this._getReactionsImportPath().append(ReactionsImportPath.fromPathString("commonSignature")));
-    return _routinesFacade.removeCorrespondenceBetweenMethodAndSignature(method, sign);
-  }
-  
   public boolean checkRemovalOfSEFF(final ClassMethod classMethod) {
     mir.routines.commonSignature.RoutinesFacade _routinesFacade = this._getRoutinesFacadesProvider().getRoutinesFacade(this._getReactionsImportPath().append(ReactionsImportPath.fromPathString("commonSignature")));
     return _routinesFacade.checkRemovalOfSEFF(classMethod);
